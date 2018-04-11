@@ -7,10 +7,12 @@ marked = require 'marked'
 
 view_template = tc.renderable (model) ->
   tc.div '.row.listview-list-entry', ->
-    tc.raw marked '# Hello World!!'
+    tc.raw marked "# #{model.appName} started."
     
 class MainView extends Backbone.Marionette.View
   template: view_template
+  templateContext:
+    appName: '{{ cookiecutter.project_slug }}'
     
 module.exports = MainView
 
