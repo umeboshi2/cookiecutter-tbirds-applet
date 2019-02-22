@@ -11,7 +11,6 @@ import scroll_top_fast from 'tbirds/util/scroll-top-fast'
 
 MainChannel = Backbone.Radio.channel 'global'
 MessageChannel = Backbone.Radio.channel 'messages'
-ResourceChannel = Backbone.Radio.channel 'resources'
 AppChannel = Backbone.Radio.channel '{{ cookiecutter.project_slug }}'
 
 class Controller extends MainController
