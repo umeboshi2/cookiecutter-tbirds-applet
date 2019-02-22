@@ -6,8 +6,8 @@ import ms from 'ms'
 import ToolbarView from 'tbirds/views/button-toolbar'
 import { MainController } from 'tbirds/controllers'
 import { ToolbarAppletLayout } from 'tbirds/views/layout'
-navigate_to_url = require 'tbirds/util/navigate-to-url'
-scroll_top_fast = require 'tbirds/util/scroll-top-fast'
+import navigate_to_url from 'tbirds/util/navigate-to-url'
+import scroll_top_fast from 'tbirds/util/scroll-top-fast'
 
 MainChannel = Backbone.Radio.channel 'global'
 MessageChannel = Backbone.Radio.channel 'messages'
@@ -16,12 +16,10 @@ AppChannel = Backbone.Radio.channel '{{ cookiecutter.project_slug }}'
 
 class Controller extends MainController
   layoutClass: ToolbarAppletLayout
-  view_index: ->
-    @setup_layout_if_needed()
-    # https://jsperf.com/bool-to-int-many
-    completed = completed ^ 0
+  viewIndex: ->
+    @setupLayoutIfNeeded()
     require.ensure [], () =>
-      View = require './views/index-view.coffee'
+      View = require './views/index-view'
       view = new View
       @layout.showChildView 'content', view
     # name the chunk

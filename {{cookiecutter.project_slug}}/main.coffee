@@ -13,13 +13,11 @@ AppChannel = Backbone.Radio.channel appName
 
 appletMenu = [
   {
-    button: '#list-button'
     label: 'List'
     url: '#{{ cookiecutter.project_slug }}'
     icon: '.fa.fa-list'
   }
   {
-    button: '#calendar-button'
     label: 'Calendar'
     url: '#{{ cookiecutter.project_slug }}/calendar'
     icon: '.fa.fa-calendar'
@@ -28,7 +26,7 @@ appletMenu = [
 
 class Router extends Marionette.AppRouter
   appRoutes:
-    '{{ cookiecutter.project_slug }}': 'view_index'
+    '{{ cookiecutter.project_slug }}': 'viewIndex'
     
 class Applet extends TkApplet
   Controller: Controller
