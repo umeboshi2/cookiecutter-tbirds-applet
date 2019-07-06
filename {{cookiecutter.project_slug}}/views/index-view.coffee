@@ -1,18 +1,17 @@
-Backbone = require 'backbone'
-Marionette = require 'backbone.marionette'
-tc = require 'teacup'
-marked = require 'marked'
+import Backbone from 'backbone'
+import Marionette from 'backbone.marionette'
+import tc from 'teacup'
+import marked from 'marked'
 
-{ navigate_to_url } = require 'tbirds/util/navigate-to-url'
+import navigate_to_url from 'tbirds/util/navigate-to-url'
 
-view_template = tc.renderable (model) ->
+viewTemplate = tc.renderable (model) ->
   tc.div '.row.listview-list-entry', ->
     tc.raw marked "# #{model.appName} started."
     
 class MainView extends Marionette.View
-  template: view_template
+  template: viewTemplate
   templateContext:
     appName: '{{ cookiecutter.project_slug }}'
-    
-module.exports = MainView
 
+export default MainView

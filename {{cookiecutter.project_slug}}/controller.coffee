@@ -18,7 +18,7 @@ class Controller extends MainController
   viewIndex: ->
     @setupLayoutIfNeeded()
     require.ensure [], () =>
-      View = require './views/index-view'
+      View = require('./views/index-view').default
       view = new View
       @layout.showChildView 'content', view
     # name the chunk
