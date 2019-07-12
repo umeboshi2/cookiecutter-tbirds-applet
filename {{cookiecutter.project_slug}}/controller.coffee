@@ -14,6 +14,7 @@ MessageChannel = Backbone.Radio.channel 'messages'
 AppChannel = Backbone.Radio.channel '{{ cookiecutter.project_slug }}'
 
 class Controller extends MainController
+  channelName: '{{ cookiecutter.project_slug }}'
   layoutClass: ToolbarAppletLayout
   viewIndex: ->
     @setupLayoutIfNeeded()
